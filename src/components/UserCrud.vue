@@ -21,20 +21,30 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
   name: "UserCrud",
-  data() {
-    return {
-      headers: [
-        { text: "Nome", value: "name" },
-        { text: "Localização", value: "location" },
-      ],
-
-      users: [
-        { id: 1, name: "Mauricio", location: "Rio de Janeiro" },
-        { id: 2, name: "Tereza", location: "Bahia" },
-      ],
-    };
+  data: () => ({
+    headers: [
+      { text: "Nome", value: "name" },
+      { text: "Localização", value: "location" },
+    ],
+    users: [{ id: 1, name: "Luiz", location: "Philipinas" }],
+  }),
+  methods: {
+    inicializa() {
+      axios("http://localhost:3000/users")
+        .then((response) => {
+          this.users = response.data;
+        })
+        .catch((error) => console.log(error));
+    },
+  },
+  created() {
+    this.inicializa();
   },
 };
 </script>
+
+<style scoped>
+</style>
