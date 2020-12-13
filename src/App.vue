@@ -4,7 +4,9 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/users">UserCrud</router-link>
     </div>
-    <router-view />
+    <div data-app>
+       <router-view />
+    </div>
   </div>
 </template>
 
