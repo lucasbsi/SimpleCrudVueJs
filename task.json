@@ -1,0 +1,28 @@
+{
+  "task": [
+    {
+      "id": 1,  
+      "quantidade": 1,
+      "nome": "Cama",
+      "prioridade": "Baixa"
+    },
+    {
+      "id": 2,
+      "quantidade": 1,
+      "nome": "Geladeira",
+      "prioridade": "Media"
+    },
+    {
+      "id": 3, 
+      "quantidade": 1,
+      "nome": "Mesa",
+      "prioridade": "Alta"
+    },
+    {
+      "id": 4,
+      "quantidade": 1,
+      "nome": "Faca",
+      "prioridade": "Alta"
+    }
+  ]
+}

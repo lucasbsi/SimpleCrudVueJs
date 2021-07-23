@@ -1,3 +1,12 @@
+
+
+// <script>
+// export default {
+//   name: "Task",
+//   data: () => ({}),
+//   methods: {},
+// };
+</script>
 <template>
   <v-data-table
     :headers="headers"
@@ -7,15 +16,14 @@
   >
     <template v-slot:top>
       <v-toolbar flat>
-        <v-toolbar-title>My CRUD</v-toolbar-title>
+        <v-toolbar-title>Lista de Hotel</v-toolbar-title>
         <v-divider class="mx-4" inset vertical></v-divider>
         <v-spacer></v-spacer>
-<!-- ------------------------------FORM NOVA JANELA -------------------- -->
 <!---------------------------- Botao NOVO ITEM --------------------------->
         <v-dialog v-model="dialog" max-width="700px">
           <template v-slot:activator="{ on, attrs }">
             <v-btn color="primary" dark class="mb-2" v-bind="attrs" v-on="on">
-              Novo Item
+              Add Hotel
             </v-btn>
           </template>
 <!---------------------------- JANELA DE EDICAO --------------------------->
@@ -46,14 +54,20 @@
                   </v-col>
                   <v-col cols="12" sm="6" md="4">
                     <v-text-field
-                      v-model="editedItem.teste"
-                      label="Teste"
+                      v-model="editedItem.diaria"
+                      label="Diaria"
+                    ></v-text-field>
+                  </v-col>
+                  <v-col cols="12" sm="6" md="4">
+                    <v-text-field
+                      v-model="editedItem.nota"
+                      label="Nota"
                     ></v-text-field>
                   </v-col>
                 </v-row>
               </v-container>
             </v-card-text>
-<!---------------------------- BOTAO DA JANELA DE EDICAO --------------------------->
+<!---------------------------- JANELA DE EDICAO --------------------------->
             <v-card-actions>
               <v-spacer></v-spacer>
               <v-btn color="blue darken-1" text @click="close"> Cancel </v-btn>
@@ -85,27 +99,30 @@ export default {
       { text: "Id", value: "id" },
       { text: "Nome", value: "name" },
       { text: "Localização", value: "location" },
+      { text: "Diaria", value: "diaria" },
+      { text: "Nota", value: "nota" },
       { text: "Actions", value: "actions", sortable: false },
-      { text: "Text", value: "teste" },
     ],
-    users: [{ id: 1, name: "Luiz", location: "Philipinas", teste: "kljlkj" }],
+    users: [{ id: 1, name: "Luiz", location: "Philipinas", nota: "kljlkj" }],
     editedIndex: -1,
     editedItem: {
       id: 0,
       name: "",
-      location: "Brasil",
-      teste: "",
+      location: "",
+      diaria:"R$",
+      nota: "",
     },
     defaultItem: {
       id: 0,
       name: "",
       location: "Brasil",
-      teste: "",
+      diaria:"R$",
+      nota: "",
     },
   }),
   methods: {
     inicializa() {
-      axios("http://localhost:5000/users")
+      axios("http://localhost:3000/users")
         .then((response) => {
           this.users = response.data;
         })
@@ -123,7 +140,7 @@ export default {
         //alteracao
         axios
           .put(
-            "http://localhost:5000/users/" + this.editedIndex.id,
+            "http://localhost:3000/users/" + this.editedIndex.id,
             this.editedItem
           )
           .then((response) => {
@@ -135,7 +152,7 @@ export default {
       } else {
         //Inclusao
         axios
-          .post("http://localhost:5000/users", this.editedItem)
+          .post("http://localhost:3000/users", this.editedItem)
           .then((response) => {
             console.log(response);
             this.users.push(this.editedItem);
@@ -153,7 +170,7 @@ export default {
       const index = this.users.indexOf(item);
       confirm("Deseja apagar este item?") &&
         axios
-          .delete("http://localhost:5000/users/" + item.id)
+          .delete("http://localhost:3000/users/" + item.id)
           .then((response) => {
             console.log(response.data);
             this.users.splice(index, 1);
@@ -184,3 +201,4 @@ export default {
 
 <style scoped>
 </style>
+

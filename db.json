@@ -1,19 +1,46 @@
 {
   "users": [
     {
-      "id": 1,
-      "name": "Andre Marques",
-      "location": "Brazil"
+      "id": "1",
+      "name": "Hotel Campos",
+      "location": "Campos-RJ",
+      "diaria": "R$130.00",
+      "nota": "5"
     },
     {
-      "id": 2,
-      "name": "Julio",
-      "location": "Canadá"
+      "id": "2",
+      "name": "Hotel Plaza",
+      "location": "Campos-RJ",
+      "diaria": "R$155.00",
+      "nota": "4"
     },
     {
       "id": "3",
-      "name": "dsfdsfsdf",
-      "location": "Brasil"
+      "name": "Hotel Pelinca",
+      "location": "Campos-RJ",
+      "diaria": "R$240.00",
+      "nota": "4"
+    },
+    {
+      "id": "4",
+      "name": "Hotel Medial",
+      "location": "Campos-RJ",
+      "diaria": "R$80.00",
+      "nota": "5"
+    },
+    {
+      "id": "5",
+      "name": "Paraíso",
+      "location": "Jd Carioca",
+      "diaria": "R$ 40.00",
+      "nota": "3"
+    },
+    {
+      "id": "6",
+      "name": "Hostel Solar",
+      "location": "Pq Bandeira",
+      "diaria": "R$ 78,00",
+      "nota": "2"
     }
   ]
 }
